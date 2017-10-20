@@ -16,8 +16,8 @@ public:
   virtual int dequeue();
 
 private:
-  int items[30]; //int* items; //remember an array is just a pointer
-  int capacity = 30;
+  int items[QUEUE_CAPACITY];
+  int capacity = QUEUE_CAPACITY;
   int head;
   int tail;
 

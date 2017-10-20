@@ -7,6 +7,9 @@
 
 #include "EmptyQException.h"
 
+#define QUEUE_CAPACITY    30
+
+
 //Must have only pure virtual functions. Of form: virtual f(x) decl = 0;
 class IQueue
 {

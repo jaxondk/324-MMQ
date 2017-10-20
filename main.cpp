@@ -1,11 +1,14 @@
 #include <iostream>
 #include <sys/time.h>
-#include <assert.h>
+#include <cassert>
+#include <fcntl.h>
+#include <sys/mman.h>
 #include "IQueue.h"
 #include "ArrayQ.h"
+#include "LLQ.h"
+#include "MMQ.h"
 
 const int TEST_SIZE = 3000;
-const int QUEUE_CAPACITY = 30;
 const int NUM_ITEMS_INSERT = 30;
 
 double When()
@@ -44,14 +47,15 @@ double getAvgTime(IQueue* queue)
 
 int main()
 {
-  ArrayQ arrayQ; //(QUEUE_CAPACITY);
-//  LLQ llq(QUEUE_CAPACITY);
-//  MMQ mmq(QUEUE_CAPACITY);
+  ArrayQ arrayQ;
+  LLQ llQ;
+//  MMQ mmQ;
+  //shm_open("mysharedsegment", O_RDWR|O_CREAT, 0600);
 
-  test(&arrayQ);
-//  std::cout << "Average time for array implementation: " << getAvgTime(&arrayQ) << std::endl;
-//  std::cout << "Average time for linked list implementation: " << getAvgTime(&llq) << std::endl;
-//  std::cout << "Average time for memory-mapped implementation: " << getAvgTime(&mmq) << std::endl;
+  //test(&mmQ);
+  std::cout << "Average time for array implementation: " << getAvgTime(&arrayQ) << std::endl;
+  std::cout << "Average time for linked list implementation: " << getAvgTime(&llQ) << std::endl;
+//  std::cout << "Average time for memory-mapped implementation: " << getAvgTime(&mmQ) << std::endl;
 
   return 0;
 }

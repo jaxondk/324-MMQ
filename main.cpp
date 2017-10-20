@@ -1,7 +1,6 @@
 #include <iostream>
 #include <sys/time.h>
 #include <cassert>
-#include <fcntl.h>
 #include <unistd.h>
 #include "IQueue.h"
 #include "ArrayQ.h"
@@ -59,7 +58,7 @@ int main()
   LLQ llQ;
   MMQ mmQ(QUEUE_CAPACITY);
 
-//  std::cout << "Number of ops for one test: " << test(&mmQ) << std::endl;
+  std::cout << "Number of ops for one test: " << test(&mmQ) << ". # of tests per implementation: " << TEST_SIZE << std::endl;
   std::cout << "Average time for array implementation: " << getAvgTime(&arrayQ) << std::endl;
   std::cout << "Average time for linked list implementation: " << getAvgTime(&llQ) << std::endl;
   std::cout << "Average time for memory-mapped implementation: " << getAvgTime(&mmQ) << std::endl;

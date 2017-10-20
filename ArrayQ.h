@@ -10,14 +10,14 @@
 class ArrayQ : public IQueue
 {
 public:
-  ArrayQ();
+  ArrayQ(int capacity);
   virtual ~ArrayQ();
   void enqueue(int item) override;
   int dequeue() override;
 
 private:
-  int items[1024];
-  int capacity = 1024; //make this dynamic
+  int* items;
+  int capacity;
   int head;
   int tail;
 

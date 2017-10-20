@@ -4,17 +4,17 @@
 
 #include "ArrayQ.h"
 
-ArrayQ::ArrayQ() //(int capacity)
+ArrayQ::ArrayQ(int capacity)
 {
-//  items = new int[capacity]; //careful. Will probs need to delete this in destructor
-//  this->capacity = capacity;
+  items = new int[capacity]; //careful. Will probs need to delete this in destructor
+  this->capacity = capacity;
   head = -1;
   tail = -1;
 }
 
 ArrayQ::~ArrayQ()
 {
-//  delete items;
+  delete items;
 }
 
 void ArrayQ::enqueue(int item)
@@ -35,7 +35,7 @@ int ArrayQ::dequeue()
 
 void ArrayQ::circularIncr(int &index)
 {
-  if(index != -1 && index + 1 == capacity)
+  if(index != -1 && (index + 1 == capacity))
     index = (index + 1) % capacity;
   else
     index++;

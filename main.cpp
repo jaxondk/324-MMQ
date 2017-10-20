@@ -54,11 +54,11 @@ double getAvgTime(IQueue* queue)
 
 int main()
 {
-  ArrayQ arrayQ;
+  ArrayQ arrayQ(QUEUE_CAPACITY);
   LLQ llQ;
   MMQ mmQ(QUEUE_CAPACITY);
 
-  std::cout << "Number of ops for one test: " << test(&mmQ) << ". # of tests per implementation: " << TEST_SIZE << std::endl;
+  std::cout << "Number of ops for one test: " << test(&arrayQ) << ". # of tests per implementation: " << TEST_SIZE << std::endl;
   std::cout << "Average time for array implementation: " << getAvgTime(&arrayQ) << std::endl;
   std::cout << "Average time for linked list implementation: " << getAvgTime(&llQ) << std::endl;
   std::cout << "Average time for memory-mapped implementation: " << getAvgTime(&mmQ) << std::endl;

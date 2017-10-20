@@ -35,7 +35,7 @@ int ArrayQ::dequeue()
 
 void ArrayQ::circularIncr(int &index)
 {
-  if(index != -1 && (index + 1 == capacity))
+  if(index != -1 && (index + 1 == capacity)) //reduces number of mod calls, only mod when you need to
     index = (index + 1) % capacity;
   else
     index++;

@@ -10,19 +10,19 @@
 class ArrayQ : public IQueue
 {
 public:
-  ArrayQ();//(int capacity);
+  ArrayQ();
   virtual ~ArrayQ();
-  virtual void enqueue(int item);
-  virtual int dequeue();
+  void enqueue(int item) override;
+  int dequeue() override;
 
 private:
-  int items[QUEUE_CAPACITY];
-  int capacity = QUEUE_CAPACITY;
+  int items[1024];
+  int capacity = 1024; //make this dynamic
   int head;
   int tail;
 
-  virtual bool isEmpty() { return tail == -1; }
-  virtual void circularIncr(int &index);
+  bool isEmpty() override { return tail == -1; }
+  void circularIncr(int &index);
 
 };
 

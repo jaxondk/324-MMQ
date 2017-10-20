@@ -36,6 +36,7 @@ void LLQ::enqueue(int item)
 
 int LLQ::dequeue()
 {
+  IQueue::dequeue();
   int item = head->data;
   Node* current = head;
   head = head->next;
